@@ -1,5 +1,6 @@
-package com.springboot.demo;
+package com.springboot.demo.annotation;
 
+import com.springboot.demo.util.BeanChangeUtil;
 import lombok.Data;
 
 import java.math.BigDecimal;

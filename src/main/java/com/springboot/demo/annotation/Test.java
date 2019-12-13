@@ -1,7 +1,9 @@
-package com.springboot.demo;
+package com.springboot.demo.annotation;
 
 
 import com.google.common.collect.Lists;
+import com.springboot.demo.util.BeanChangeUtil;
+import com.springboot.domain.Person;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.util.CollectionUtils;
 

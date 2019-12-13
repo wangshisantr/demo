@@ -1,5 +1,6 @@
-package com.springboot.demo;
+package com.springboot.demo.util;
 
+import com.springboot.demo.annotation.PropertyMsg;
 import org.apache.commons.lang3.StringUtils;
 
 import java.beans.PropertyDescriptor;

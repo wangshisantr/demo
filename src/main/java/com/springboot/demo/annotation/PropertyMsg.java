@@ -1,4 +1,4 @@
-package com.springboot.demo;
+package com.springboot.demo.annotation;
 
 import java.lang.annotation.*;
 

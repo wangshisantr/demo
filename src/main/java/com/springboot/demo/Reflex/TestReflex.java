@@ -1,10 +1,6 @@
-package com.springboot.demo;
-
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.PropertySource;
+package com.springboot.demo.Reflex;
 
 import java.io.InputStream;
-import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.Properties;
 

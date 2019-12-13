@@ -1,4 +1,4 @@
-package com.springboot.demo;
+package com.springboot.demo.Thread;
 
 import com.google.common.util.concurrent.ThreadFactoryBuilder;
 import org.apache.commons.lang3.concurrent.BasicThreadFactory;

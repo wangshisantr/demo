@@ -1,5 +1,6 @@
-package com.springboot.demo;
+package com.springboot.domain;
 
+import com.springboot.demo.annotation.PropertyMsg;
 import lombok.Data;
 
 import java.io.Serializable;
