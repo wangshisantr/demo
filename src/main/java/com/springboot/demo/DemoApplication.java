@@ -1,7 +1,7 @@
 package com.springboot.demo;
 
 import com.springboot.demo.config.BootSettingConfig;
-import com.springboot.domain.Person;
+import com.springboot.demo.annotation.Person;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

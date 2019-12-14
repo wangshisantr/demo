@@ -1,4 +1,4 @@
-package com.springboot.demo.Reflex;
+package com.springboot.demo.reflex;
 
 import java.io.InputStream;
 import java.lang.reflect.Method;

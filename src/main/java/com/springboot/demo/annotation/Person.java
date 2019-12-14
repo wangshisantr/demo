@@ -1,4 +1,4 @@
-package com.springboot.domain;
+package com.springboot.demo.annotation;
 
 import com.springboot.demo.annotation.PropertyMsg;
 import lombok.Data;

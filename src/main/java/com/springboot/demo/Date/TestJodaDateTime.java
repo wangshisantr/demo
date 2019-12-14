@@ -1,4 +1,4 @@
-package com.springboot.demo.Date;
+package com.springboot.demo.date;
 
 
 import org.joda.time.DateTime;
