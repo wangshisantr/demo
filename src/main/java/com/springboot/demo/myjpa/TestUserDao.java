@@ -7,7 +7,7 @@ package com.springboot.demo.myjpa;
 public class TestUserDao {
     public static void main(String[] args) {
         User u = User.getOne();
-        u.setId(11L);
+        u.setId(12L);
         u.setCreate_time(null);
         u.setUpdate_time(null);
         UserDao userDao = new UserDao();
