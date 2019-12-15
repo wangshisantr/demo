@@ -23,6 +23,7 @@ public class BaseDao<T> {
         dataSource.setUsername("root");
         dataSource.setPassword("123456");
     }
+
     private JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
     private Class<T> beanClass;
 
@@ -30,7 +31,7 @@ public class BaseDao<T> {
         // this指代子类
         // 通过子类得到子类传给父类的泛型class对象,比如User.class
         ParameterizedType superclass = (ParameterizedType) this.getClass().getGenericSuperclass();
-        beanClass  = (Class) superclass.getActualTypeArguments()[0];
+        beanClass = (Class) superclass.getActualTypeArguments()[0];
     }
 
     /**
@@ -42,13 +43,39 @@ public class BaseDao<T> {
     public int insert(T bean) {
         // 得到泛型类的所有字段
         Field[] fields = beanClass.getDeclaredFields();
-        // 拼接sql insert into table_name values (?,?);
+        // 获取tableName
+        String tableName = beanClass.isAnnotationPresent(TableName.class) ? beanClass.getAnnotation(TableName.class).value() : beanClass.getSimpleName();
+        // 拼接sql insert into table_name(field1,field2) values (?,?);
         StringBuilder sb = new StringBuilder();
-        sb.append("insert into ").append(beanClass.getSimpleName()).append(" values (");
+        sb.append("insert into ").append(tableName).append("(");
         for (Field field : fields) {
-            sb.append("?,");
+            try {
+                field.setAccessible(true);
+                if (field.get(bean) != null) {
+                    if (field.isAnnotationPresent(FieldName.class)) {
+                        sb.append(field.getAnnotation(FieldName.class).value()).append(",");
+                    } else {
+                        sb.append(field.getName()).append(",");
+                    }
+                }
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+            }
         }
-        sb.setLength(sb.length()-1);
+        sb.setLength(sb.length() - 1);
+        sb.append(") values (");
+        //
+        for (Field field : fields) {
+            try {
+                field.setAccessible(true);
+                if (field.get(bean) != null) {
+                    sb.append("?,");
+                }
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+            }
+        }
+        sb.setLength(sb.length() - 1);
         sb.append(")");
         List<Object> paramList = Lists.newArrayList();
         // 获取bean的值
@@ -56,7 +83,10 @@ public class BaseDao<T> {
             try {
                 field.setAccessible(true);
                 Object object = field.get(bean);
-                paramList.add(object);
+                if(object != null) {
+                    paramList.add(object);
+
+                }
             } catch (IllegalAccessException e) {
                 e.printStackTrace();
             }

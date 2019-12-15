@@ -5,8 +5,8 @@ package com.springboot.demo.myjpa;
  * @date 2019/12/14
  */
 public class UserDao extends BaseDao<User> {
-    @Override
-    public int insert(User bean) {
-        return super.insert(bean);
-    }
+    // @Override
+    // public int insert(User bean) {
+    //     return super.insert(bean);
+    // }
 }

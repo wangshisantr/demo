@@ -9,13 +9,16 @@ import java.util.Date;
  * @date 2019/12/14
  */
 @Data
+@TableName("user")
 public class User {
     private Long id;
     private String name;
     private Integer age;
     private String email;
-    private Date create_time;
-    private Date update_time;
+    @FieldName("create_time")
+    private Date createTime;
+    @FieldName("update_time")
+    private Date updateTime;
     private Integer version;
     private Integer deleted;
 
@@ -25,8 +28,8 @@ public class User {
         u.setName("liudehua");
         u.setAge(18);
         u.setEmail("1234566@qq.com");
-        u.setCreate_time(new Date());
-        u.setUpdate_time(new Date());
+        u.setCreateTime(new Date());
+        u.setUpdateTime(new Date());
         u.setVersion(1);
         u.setDeleted(0);
         return u;
