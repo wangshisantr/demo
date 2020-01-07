@@ -11,6 +11,8 @@ import java.io.Serializable;
 @Data
 public class Person implements Serializable {
 
+    private static final long serialVersionUID = 3429891366529880314L;
+
     @PropertyMsg(value = "姓名", delete = true)
     private String name;
     @PropertyMsg(value = "年龄", delete = true)

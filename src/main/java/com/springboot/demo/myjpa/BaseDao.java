@@ -25,6 +25,7 @@ public class BaseDao<T> {
     }
 
     private JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
+    /** 泛型类的class对象 **/
     private Class<T> beanClass;
 
     public BaseDao() {

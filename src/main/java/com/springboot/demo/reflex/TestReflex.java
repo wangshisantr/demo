@@ -15,7 +15,7 @@ public class TestReflex {
 
         // 获取类加载器
         ClassLoader classLoader = TestReflex.class.getClassLoader();
-        // 获取配置文件的信息
+        // 获取配置文件的信息，application.properties要在resource目录下
         InputStream stream = classLoader.getResourceAsStream("application.properties");
         Properties properties = new Properties();
         properties.load(stream);
