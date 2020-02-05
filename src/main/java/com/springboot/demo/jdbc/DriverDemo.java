@@ -3,10 +3,8 @@ package com.springboot.demo.jdbc;
 import com.mysql.jdbc.Driver;
 import org.junit.Test;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.io.InputStream;
+import java.sql.*;
 import java.util.Properties;
 
 /**
@@ -37,7 +35,25 @@ public class DriverDemo {
         String password = "123456";
         Connection connection = DriverManager.getConnection(url, username, password);
         System.out.println(connection.toString());
-        PreparedStatement preparedStatement = connection.prepareStatement("select * from test");
     }
-    
+    @Test
+    public void testDriverManager2() throws Exception {
+        // 从配置文件拿到数据库配置信息
+        Properties properties = new Properties();
+        InputStream resourceAsStream = this.getClass().getClassLoader().getResourceAsStream("jdbc.properties");
+        properties.load(resourceAsStream);
+        String driver = properties.getProperty("driver");
+        String url = properties.getProperty("url");
+        String username = properties.getProperty("username");
+        String password = properties.getProperty("password");
+        Class.forName(driver);
+        // 用driverManager获得数据库连接
+        Connection connection = DriverManager.getConnection(url, username, password);
+        System.out.println(connection.toString());
+    }
+
+    @Test
+    public void t () throws SQLException {
+        System.out.println(JdbcUtil.getConnection());
+    }
 }
