@@ -65,6 +65,7 @@ public class MyJDBCTemplate<T> {
             }
             return list;
         } catch (SQLException e) {
+            e.printStackTrace();
             throw new DaoException(e.getMessage(), e);
         } finally {
             JdbcUtil.free(rs, ps, conn);

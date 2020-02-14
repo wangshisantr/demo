@@ -1,4 +1,4 @@
-package com.springboot.demo.StaticProxy;
+package com.springboot.demo.staticproxy;
 
 /**
  * @Description 静态代理接口
