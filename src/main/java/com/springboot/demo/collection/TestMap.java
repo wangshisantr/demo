@@ -32,5 +32,12 @@ public class TestMap {
             String value = map.get(key);
             System.out.println("key:" + key + " value:" + value);
         }
+
+        Set<Map.Entry<String, String>> entries1 = map.entrySet();
+        entries1.forEach(entry -> {
+            String key = entry.getKey();
+            String value = entry.getValue();
+            System.out.println(key + value);
+        });
     }
 }
