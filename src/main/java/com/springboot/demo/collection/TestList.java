@@ -1,8 +1,10 @@
 package com.springboot.demo.collection;
 
 import com.google.common.collect.Lists;
+import com.springboot.domain.Student;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Iterator;
 
 /**
@@ -12,6 +14,12 @@ import java.util.Iterator;
  */
 public class TestList {
     public static void main(String[] args) {
+        TestList testList = new TestList();
+        // testList.testListRemove();
+        testList.testListSort();
+    }
+
+    public void testListRemove() {
         ArrayList<String> arrayList = Lists.newArrayList();
         arrayList.add("list1");
         arrayList.add("list2");
@@ -27,5 +35,18 @@ public class TestList {
             // arrayList.remove("list2");
         }
         System.out.println(arrayList.toString());
+    }
+    public void testListSort() {
+        ArrayList<Student> list = Lists.newArrayList();
+        for (int i = 0; i < 10; i++) {
+            Student student = new Student();
+            student.setAge(i);
+            if (i == 1 || i == 2) {
+                student.setAge(null);
+            }
+            list.add(student);
+        }
+        Collections.sort(list);
+        System.out.println(list);
     }
 }
